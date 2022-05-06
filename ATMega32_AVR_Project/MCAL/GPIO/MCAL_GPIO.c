@@ -6,6 +6,15 @@
  */ 
 #include "MCAL_GPIO.h"
 
+/* =============================================================================================
+ * @Fn						-MCAL_GPIO_Init_Pin_Mode.
+ * @brief	    -initialize the GPIOx PIN according to the instance Pin_Config_IO.
+ * @param [in] 	-GPIOx: can be (GPIOA, GPIOB, GPIOC, GPIOD) to select the GPIO peripheral port.
+ * @param [in] 	-GPIO_PIN_x: can be (GPIO_PIN_0, ..., GPIO_PIN_7) to select the GPIO peripheral.
+ * @param [in] 	-Pin_Config_IO: configuration that controls the Input/Output state.
+ * @retval 					-none
+ * Note						-none
+ */
 void MCAL_GPIO_Init_Pin_Mode(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_Config_IO)
 {
 	switch (GPIOx)
@@ -67,6 +76,15 @@ void MCAL_GPIO_Init_Pin_Mode(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_Config_IO)
 	}
 }
 
+/* =============================================================================================
+ * @Fn						-MCAL_GPIO_Write_Pin.
+ * @brief	    -initialize the GPIOx PIN according to the instance Pin_Config_IO.
+ * @param [in] 	-GPIOx: can be (GPIOA, GPIOB, GPIOC, GPIOD) to select the GPIO peripheral port.
+ * @param [in] 	-GPIO_PIN_x: can be (GPIO_PIN_0, ..., GPIO_PIN_7) to select the GPIO peripheral.
+ * @param [in] 	-Pin_OP_State_HiLw: configuration that controls the High/Low output state.
+ * @retval 					-none
+ * Note						-none
+ */
 void MCAL_GPIO_Write_Pin(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_OP_State_HiLw)
 {
 	switch (GPIOx)
@@ -128,6 +146,14 @@ void MCAL_GPIO_Write_Pin(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_OP_State_HiLw)
 	}
 }
 
+/* =============================================================================================
+ * @Fn						-MCAL_GPIO_Read_Pin.
+ * @brief	    -initialize the GPIOx PIN according to the instance Pin_Config_IO.
+ * @param [in] 	-GPIOx: can be (GPIOA, GPIOB, GPIOC, GPIOD) to select the GPIO peripheral port.
+ * @param [in] 	-GPIO_PIN_x: can be (GPIO_PIN_0, ..., GPIO_PIN_7) to select the GPIO peripheral.
+ * @retval 					-either one of two states (High, Low)
+ * Note						-none 
+ */
 U8 MCAL_GPIO_Read_Pin(U8 GPIOx, U8 GPIO_PIN_x)
 {
 	U8 loc_U8_GPIO_Pin_Reading =0;
@@ -151,6 +177,14 @@ U8 MCAL_GPIO_Read_Pin(U8 GPIOx, U8 GPIO_PIN_x)
 	return loc_U8_GPIO_Pin_Reading;
 }
 
+/* =============================================================================================
+ * @Fn						-MCAL_GPIO_Read_Port.
+ * @brief	    -initialize the GPIOx PIN according to the instance Pin_Config_IO.
+ * @param [in] 	-GPIOx: can be (GPIOA, GPIOB, GPIOC, GPIOD) to select the GPIO peripheral port.
+ * @param [in] 	-GPIO_PIN_x: can be (GPIO_PIN_0, ..., GPIO_PIN_7) to select the GPIO peripheral.
+ * @retval 					-input value on GPIOx
+ * Note						-none 
+ */
 U8 MCAL_GPIO_Read_Port(U8 GPIOx)
 {
 	U8 loc_U8_GPIO_PORT_Reading =0;
@@ -174,7 +208,15 @@ U8 MCAL_GPIO_Read_Port(U8 GPIOx)
 	return loc_U8_GPIO_PORT_Reading;
 }
 
-void MCAL_GPIO_Toggel_Pin(U8 GPIOx, U8 GPIO_PIN_x)
+/* =============================================================================================
+ * @Fn						-MCAL_GPIO_Toggle_Pin.
+ * @brief	    -initialize the GPIOx PIN according to the instance Pin_Config_IO.
+ * @param [in] 	-GPIOx: can be (GPIOA, GPIOB, GPIOC, GPIOD) to select the GPIO peripheral port.
+ * @param [in] 	-GPIO_PIN_x: can be (GPIO_PIN_0, ..., GPIO_PIN_7) to select the GPIO peripheral.
+ * @retval 					-none
+ * Note						-Toggles the state of an selected pin 
+ */
+void MCAL_GPIO_Toggle_Pin(U8 GPIOx, U8 GPIO_PIN_x)
 {
 	switch (GPIOx)
 	{
@@ -195,6 +237,15 @@ void MCAL_GPIO_Toggel_Pin(U8 GPIOx, U8 GPIO_PIN_x)
 	}
 }
 
+/* =============================================================================================
+ * @Fn						-MCAL_GPIO_Input_Pin_Config.
+ * @brief	    -initialize the GPIOx PIN according to the instance Pin_Config_IO.
+ * @param [in] 	-GPIOx: can be (GPIOA, GPIOB, GPIOC, GPIOD) to select the GPIO peripheral port.
+ * @param [in] 	-GPIO_PIN_x: can be (GPIO_PIN_0, ..., GPIO_PIN_7) to select the GPIO peripheral.
+ * @param [in] 	-Pin_Config: configuration that controls the activity of the internal pull-up Resistor. 
+ * @retval 					-none
+ * Note						-none 
+ */
 void MCAL_GPIO_Input_Pin_Config(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_Config)
 {
 	switch (GPIOx)
@@ -255,5 +306,3 @@ void MCAL_GPIO_Input_Pin_Config(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_Config)
 		break;
 	}
 }
-
-

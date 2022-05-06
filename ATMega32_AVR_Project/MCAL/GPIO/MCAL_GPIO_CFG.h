@@ -8,9 +8,20 @@
 #ifndef MCAL_GPIO_CFG_H_
 #define MCAL_GPIO_CFG_H_
 
+/*****************_Macros_Configuration_*****************/
+#define	GPIOA		(U8)1
+#define	GPIOB		(U8)2
+#define	GPIOC		(U8)3
+#define	GPIOD		(U8)4
 
-
-
+#define	GPIO_PIN_0			(U8)0
+#define	GPIO_PIN_1			(U8)1
+#define	GPIO_PIN_2			(U8)2
+#define	GPIO_PIN_3			(U8)3
+#define	GPIO_PIN_4			(U8)4
+#define	GPIO_PIN_5			(U8)5
+#define	GPIO_PIN_6			(U8)6
+#define	GPIO_PIN_7			(U8)7
 
 #endif /* MCAL_GPIO_CFG_H_ */
 

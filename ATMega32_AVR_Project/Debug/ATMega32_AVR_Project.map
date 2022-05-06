@@ -21,7 +21,7 @@ Discarded input sections
                 0x00000000       0x62 MCAL/GPIO/MCAL_GPIO.o
  .text.MCAL_GPIO_Read_Port
                 0x00000000       0x2a MCAL/GPIO/MCAL_GPIO.o
- .text.MCAL_GPIO_Toggel_Pin
+ .text.MCAL_GPIO_Toggle_Pin
                 0x00000000       0x6e MCAL/GPIO/MCAL_GPIO.o
  .text.MCAL_GPIO_Input_Pin_Config
                 0x00000000       0xf8 MCAL/GPIO/MCAL_GPIO.o
