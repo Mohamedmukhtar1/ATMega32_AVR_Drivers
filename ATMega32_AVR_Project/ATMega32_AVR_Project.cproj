@@ -101,6 +101,8 @@
       <Value>../APP</Value>
       <Value>../HAL</Value>
       <Value>../MCAL</Value>
+      <Value>../APP/Library</Value>
+      <Value>../MCAL/GPIO</Value>
     </ListValues>
   </avrgcc.compiler.directories.IncludePaths>
   <avrgcc.compiler.optimization.level>Optimize debugging experience (-Og)</avrgcc.compiler.optimization.level>
@@ -123,14 +125,34 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="APP\Library\APP_BIT_MATH.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="APP\Library\APP_STD_Types.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="APP\main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GPIO\MCAL_GPIO.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GPIO\MCAL_GPIO.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GPIO\MCAL_GPIO_CFG.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\GPIO\MCAL_GPIO_REG.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="APP" />
+    <Folder Include="APP\Library" />
     <Folder Include="HAL" />
     <Folder Include="MCAL" />
+    <Folder Include="MCAL\GPIO" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

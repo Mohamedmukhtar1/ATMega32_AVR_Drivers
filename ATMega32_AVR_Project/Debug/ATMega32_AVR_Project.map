@@ -10,6 +10,31 @@ Discarded input sections
  .text          0x00000000        0x0 APP/main.o
  .data          0x00000000        0x0 APP/main.o
  .bss           0x00000000        0x0 APP/main.o
+ .text          0x00000000        0x0 MCAL/GPIO/MCAL_GPIO.o
+ .data          0x00000000        0x0 MCAL/GPIO/MCAL_GPIO.o
+ .bss           0x00000000        0x0 MCAL/GPIO/MCAL_GPIO.o
+ .text.MCAL_GPIO_Init_Pin_Mode
+                0x00000000       0xf4 MCAL/GPIO/MCAL_GPIO.o
+ .text.MCAL_GPIO_Write_Pin
+                0x00000000       0xf4 MCAL/GPIO/MCAL_GPIO.o
+ .text.MCAL_GPIO_Read_Pin
+                0x00000000       0x62 MCAL/GPIO/MCAL_GPIO.o
+ .text.MCAL_GPIO_Read_Port
+                0x00000000       0x2a MCAL/GPIO/MCAL_GPIO.o
+ .text.MCAL_GPIO_Toggel_Pin
+                0x00000000       0x6e MCAL/GPIO/MCAL_GPIO.o
+ .text.MCAL_GPIO_Input_Pin_Config
+                0x00000000       0xf8 MCAL/GPIO/MCAL_GPIO.o
+ .debug_info    0x00000000      0x207 MCAL/GPIO/MCAL_GPIO.o
+ .debug_abbrev  0x00000000       0xa9 MCAL/GPIO/MCAL_GPIO.o
+ .debug_loc     0x00000000      0x4dc MCAL/GPIO/MCAL_GPIO.o
+ .debug_aranges
+                0x00000000       0x48 MCAL/GPIO/MCAL_GPIO.o
+ .debug_ranges  0x00000000       0x38 MCAL/GPIO/MCAL_GPIO.o
+ .debug_line    0x00000000      0x2d9 MCAL/GPIO/MCAL_GPIO.o
+ .debug_str     0x00000000      0x29f MCAL/GPIO/MCAL_GPIO.o
+ .comment       0x00000000       0x31 MCAL/GPIO/MCAL_GPIO.o
+ .debug_frame   0x00000000       0x74 MCAL/GPIO/MCAL_GPIO.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -43,6 +68,7 @@ Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o
 LOAD APP/main.o
+LOAD MCAL/GPIO/MCAL_GPIO.o
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
 END GROUP
