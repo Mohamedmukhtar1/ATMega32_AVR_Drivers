@@ -2,6 +2,8 @@ Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                              MCAL/ADC/MCAL_ADC.o (__tablejump2__)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
                               MCAL/ADC/MCAL_ADC.o (__do_clear_bss)
 
@@ -15,15 +17,30 @@ Discarded input sections
  .text          0x00000000        0x0 MCAL/ADC/MCAL_ADC.o
  .data          0x00000000        0x0 MCAL/ADC/MCAL_ADC.o
  .bss           0x00000000        0x0 MCAL/ADC/MCAL_ADC.o
+ .text.MCAL_ADC_INITIATE
+                0x00000000       0x5c MCAL/ADC/MCAL_ADC.o
+ .text.MCAL_ADC_Disable
+                0x00000000        0x8 MCAL/ADC/MCAL_ADC.o
+ .text.MCAL_ADC_Channel_Select
+                0x00000000       0x60 MCAL/ADC/MCAL_ADC.o
+ .progmem.gcc_sw_table.MCAL_ADC_Channel_Select
+                0x00000000       0x10 MCAL/ADC/MCAL_ADC.o
+ .text.MCAL_ADC_Auto_Trigering_Mode
+                0x00000000       0xec MCAL/ADC/MCAL_ADC.o
+ .progmem.gcc_sw_table.MCAL_ADC_Auto_Trigering_Mode
+                0x00000000       0x12 MCAL/ADC/MCAL_ADC.o
  .bss.global_ptr_ADC_CallBack_Function
                 0x00000000        0x2 MCAL/ADC/MCAL_ADC.o
- .debug_info    0x00000000       0x85 MCAL/ADC/MCAL_ADC.o
- .debug_abbrev  0x00000000       0x3c MCAL/ADC/MCAL_ADC.o
+ .debug_info    0x00000000      0x12f MCAL/ADC/MCAL_ADC.o
+ .debug_abbrev  0x00000000       0x90 MCAL/ADC/MCAL_ADC.o
+ .debug_loc     0x00000000      0x20c MCAL/ADC/MCAL_ADC.o
  .debug_aranges
-                0x00000000       0x18 MCAL/ADC/MCAL_ADC.o
- .debug_line    0x00000000       0x34 MCAL/ADC/MCAL_ADC.o
- .debug_str     0x00000000      0x1ce MCAL/ADC/MCAL_ADC.o
+                0x00000000       0x38 MCAL/ADC/MCAL_ADC.o
+ .debug_ranges  0x00000000       0x28 MCAL/ADC/MCAL_ADC.o
+ .debug_line    0x00000000      0x255 MCAL/ADC/MCAL_ADC.o
+ .debug_str     0x00000000      0x25c MCAL/ADC/MCAL_ADC.o
  .comment       0x00000000       0x31 MCAL/ADC/MCAL_ADC.o
+ .debug_frame   0x00000000       0x54 MCAL/ADC/MCAL_ADC.o
  .text          0x00000000        0x0 MCAL/GPIO/MCAL_GPIO.o
  .data          0x00000000        0x0 MCAL/GPIO/MCAL_GPIO.o
  .bss           0x00000000        0x0 MCAL/GPIO/MCAL_GPIO.o
@@ -67,6 +84,22 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc   0x00000000        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
