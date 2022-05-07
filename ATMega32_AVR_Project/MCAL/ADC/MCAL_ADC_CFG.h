@@ -33,6 +33,4 @@
 #define ADC_PRESCALER		PRESCALER_DIV_FACTOR_128_
 /*============================================================================*/
 
-
-
 #endif /* MCAL_ADC_CFG_H_ */
