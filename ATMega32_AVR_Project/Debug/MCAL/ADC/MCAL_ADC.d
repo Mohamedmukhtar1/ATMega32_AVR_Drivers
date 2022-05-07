@@ -1,0 +1,14 @@
+MCAL/ADC/MCAL_ADC.d MCAL/ADC/MCAL_ADC.o: ../MCAL/ADC/MCAL_ADC.c \
+ ../MCAL/ADC/MCAL_ADC.h ../APP/Library/APP_STD_Types.h \
+ ../APP/Library/APP_BIT_MATH.h ../MCAL/ADC/MCAL_ADC_CFG.h \
+ ../MCAL/ADC/MCAL_ADC_REG.h
+
+../MCAL/ADC/MCAL_ADC.h:
+
+../APP/Library/APP_STD_Types.h:
+
+../APP/Library/APP_BIT_MATH.h:
+
+../MCAL/ADC/MCAL_ADC_CFG.h:
+
+../MCAL/ADC/MCAL_ADC_REG.h:

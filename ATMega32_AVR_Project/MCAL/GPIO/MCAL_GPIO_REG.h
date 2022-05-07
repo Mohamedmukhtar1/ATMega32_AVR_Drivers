@@ -8,7 +8,7 @@
 #ifndef MCAL_GPIO_REG_H_
 #define MCAL_GPIO_REG_H_
 												//Physical Address	Offset Address//
-/***************************DIO_REGISTERS******************************************/
+/***************************GPIO_REGISTERS*****************************************/
 /*******_Hardware_PORT_A_******/
 #define REG_PORTA     (*((volatile U8*)0x3B))	//		(0x3B)			0x1B
 #define REG_DDRA      (*((volatile U8*)0x3A))   //		(0x3A)			0x1A

@@ -77,6 +77,38 @@ void MCAL_GPIO_Init_Pin_Mode(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_Config_IO)
 }
 
 /* =============================================================================================
+ * @Fn			-MCAL_GPIO_Deinit_Port.
+ * @brief	    -Reset the GPIOx registers.
+ * @param [in] 	-GPIOx: x can be (A...D) to select the GPIO peripheral.
+ * @retval 		-none
+ * Note			-none
+ */
+void MCAL_GPIO_Deinit_Port(U8 GPIOx)
+{
+	switch (GPIOx)
+	{
+		case GPIOA:
+			CLR_REG(REG_DDRA);
+			CLR_REG(REG_PORTA);
+		break;
+		case GPIOB:
+			CLR_REG(REG_DDRB);
+			CLR_REG(REG_PORTB);
+		break;
+		case GPIOC:
+			CLR_REG(REG_DDRC);
+			CLR_REG(REG_PORTB);
+		break;
+		case GPIOD:
+			CLR_REG(REG_DDRD);
+			CLR_REG(REG_PORTB);
+		break;
+		default:
+		break;
+	}
+}
+
+/* =============================================================================================
  * @Fn						-MCAL_GPIO_Write_Pin.
  * @brief	    -initialize the GPIOx PIN according to the instance Pin_Config_IO.
  * @param [in] 	-GPIOx: can be (GPIOA, GPIOB, GPIOC, GPIOD) to select the GPIO peripheral port.
@@ -246,12 +278,12 @@ void MCAL_GPIO_Toggle_Pin(U8 GPIOx, U8 GPIO_PIN_x)
  * @retval 					-none
  * Note						-none 
  */
-void MCAL_GPIO_Input_Pin_Config(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_Config)
+void MCAL_GPIO_Input_Pin_Config(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_PullUp_Config)
 {
 	switch (GPIOx)
 	{
 		case GPIOA:
-			switch(Pin_Config)
+			switch(Pin_PullUp_Config)
 			{
 				case INTERNAL_PULLUP_RESISTOR:
 					CLR_BIT(REG_PORTA, GPIO_PIN_x);
@@ -264,7 +296,7 @@ void MCAL_GPIO_Input_Pin_Config(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_Config)
 			}
 		break;
 		case GPIOB:
-			switch(Pin_Config)
+			switch(Pin_PullUp_Config)
 			{
 				case INTERNAL_PULLUP_RESISTOR:
 					CLR_BIT(REG_PORTB, GPIO_PIN_x);
@@ -277,7 +309,7 @@ void MCAL_GPIO_Input_Pin_Config(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_Config)
 			}
 		break;
 		case GPIOC:
-			switch(Pin_Config)
+			switch(Pin_PullUp_Config)
 			{
 				case INTERNAL_PULLUP_RESISTOR:
 				CLR_BIT(REG_PORTC, GPIO_PIN_x);
@@ -290,7 +322,7 @@ void MCAL_GPIO_Input_Pin_Config(U8 GPIOx, U8 GPIO_PIN_x, U8 Pin_Config)
 			}
 		break;
 		case GPIOD:
-			switch(Pin_Config)
+			switch(Pin_PullUp_Config)
 			{
 				case INTERNAL_PULLUP_RESISTOR:
 				CLR_BIT(REG_PORTD, GPIO_PIN_x);
