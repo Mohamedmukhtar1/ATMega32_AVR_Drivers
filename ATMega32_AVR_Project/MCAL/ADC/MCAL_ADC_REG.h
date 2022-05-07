@@ -56,6 +56,10 @@
 #define ADMUX_MUX_1		1			// Analog Channel and Gain Selection 1
 #define ADMUX_MUX_0		0			// Analog Channel and Gain Selection 0
 
+							//76543210		REFS1 REFS0 ADLAR  MUX4  MUX3  MUX2  MUX1  MUX0
+#define ADMUX_SAFE_RANGE	0b11100000	 //	  1	    1	  1		0	  0		0	  0		0
+#define ADMUX_WRITE_RANGE	0b00011111   //   0	    0	  0		1	  1		1     1		1
+
 /*               _____   _____  _____ _____					 _____  ______ _____
  *         /\   |  __ \ / ____|/ ____|  __ \     /\			|  __ \|  ____/ ____|
  *        /  \  | |  | | |    | (___ | |__) |   /  \		| |__) | |__ | |  __
@@ -82,5 +86,19 @@
 #define ADCSRA_ADPS1	1		// -> ADC Prescaler Select1
 #define ADCSRA_ADPS0	0		// -> ADC Prescaler Select0
 
+/*               _____   _____   _    _       _			 _____  ______ _____ 
+ *         /\   |  __ \ / ____| | |  | |  _  | |		|  __ \|  ____/ ____|
+ *        /  \  | |  | | |      | |__| |_| |_| |		| |__) | |__ | |  __ 
+ *       / /\ \ | |  | | |      |  __  |_   _| |		|  _  /|  __|| | |_ |
+ *      / ____ \| |__| | |____  | |  | | |_| | |____	| | \ \| |___| |__| |
+ *     /_/    \_\_____/ \_____| |_|  |_|     |______|	|_|  \_\______\_____|
+ *     ADCH+L REGISTER DEFINITION - [ADC DATA Register]
+ *     REGISTER MISSION:  [1] ADC data register of U16 data with adjustments
+-----------------------------------------------------------------------------
+|15| |14| |13| |12| |11| |10| | 9| | 8| | 7| | 6| | 5| | 4| | 3| | 2| | 1| | 0|
+ H7   H6   H5   H4	 H3   H2   H1   H0	 L7   L6   L5   L4	 L3   L2   L1   L0
+ 0	  0    0    0	 0    0   ADC9 ADC8 ADC7 ADC6 ADC5 ADC4 ADC3 ADC2 ADC1 ADC0	RIGHT_ADJUSTED
+ADC9 ADC8 ADC7 ADC6 ADC5 ADC4 ADC3 ADC2 ADC1 ADC0  0	0    0    0	   0    0	LEFT_ADJUSTED
+-----------------------------------------------------------------------------*/
 
 #endif /* MCAL_ADC_REG_H_ */

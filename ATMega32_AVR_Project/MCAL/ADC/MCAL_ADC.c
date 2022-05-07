@@ -168,11 +168,49 @@ void MCAL_ADC_Auto_Trigering_Mode(U8 Auto_Trigering_Conig)
 	}
 }
 
+U16 MCAL_ADC_Read(void)
+{
+	SET_BIT(REG_ADCSRA, ADCSRA_ADSC);	/*_TO_START_CONVERSION_*/
+	while((GET_BIT(REG_ADCSRA, ADCSRA_ADIF)) != CONVERSION_UPDATE);	/*_ADC_INTERRUPT_FLAG_CHECK_*/
+	#if		RESULT_ADJUST == RIGHT_RESULT_ADJUST
+	return	REG_ADC_VALUE;
+	#elif	RESULT_ADJUST == LEFT_RESULT_ADJUST
+	return	REG_ADC_VALUE>>LEFT_ADJUST_SHIFT;
+	#endif
+}
 
-
-
-
-
+F32 MCAL_ADC_MAPPED_READ(U8 loc_U8_Sensor_Resolution)
+{
+	SET_BIT(REG_ADCSRA, ADCSRA_ADSC);	/*_TO_START_CONVERSION_*/
+	while((GET_BIT(REG_ADCSRA, ADCSRA_ADIF)) != CONVERSION_UPDATE);	/*_ADC_INTERRUPT_FLAG_CHECK_*/
+	/*_ADC_READ_VALUE_
+	  				mVolt				Reading				 Sensor
+					0					0					   --
+					5000				1023			       --
+					#SRD(mV)			ADCUR				(SUDEG =1)
+					  --				ADCR				 SenVAL
+		ADCUR = (SRD(mV)*1023)/5000
+		
+		SenVAL = (ADCR* SUDEG)/ADCUR	,, SUDEG = 1
+			   = ADCR / ADCUR
+			   = ADCR /((SRD(mV)*1023)/5000)
+			   = (5000*ADCR)/(SRD(mV)*1023)) 
+		
+		->>> SRD:	Sensor_Resolution/Degree
+						->	ADCUR:	ADC Unit Reading
+						->	ADCR:	ADC Conversion Reading
+						->	SUDEG:	Sensor Unit Degree	= 1
+										->>> SenVAL: Sensor Value						*/
+	
+	F32 SENSOR_MAPPED_Read =0;   // float ,,,    casting is the float
+	#if		RESULT_ADJUST == RIGHT_RESULT_ADJUST
+	SENSOR_MAPPED_Read = ((F32)(REG_ADC_VALUE)*5000)/(loc_U8_Sensor_Resolution*1023);
+	return	SENSOR_MAPPED_Read;
+	#elif	RESULT_ADJUST == LEFT_RESULT_ADJUST
+	SENSOR_MAPPED_Read = ((F32)(REG_ADC_VALUE>>LEFT_ADJUST_SHIFT)*5000)/(loc_U8_Sensor_Resolution*1023);
+	return	SENSOR_MAPPED_Read;
+	#endif
+}
 void MCAL_ADC_Interrupt_Mode(U8 Interrupt_Config)
 {
 	switch(Interrupt_Config)

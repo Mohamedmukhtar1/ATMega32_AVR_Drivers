@@ -25,9 +25,16 @@
 #define VOLT_2_56_INTERNAL			3
 	
 #define RIGHT_RESULT_ADJUST			1
-#define LEFT_RESULT_ADJUST			2
+#define LEFT_RESULT_ADJUST			2	//(default) 
+#define LEFT_ADJUST_SHIFT			6
 
-/*////////_ADC operates within a frequency range of 50kHz to 200kHz*/
+#define	ISR_ADC_vect			_VECTOR(16)
+#define ADC_INTERRUPT_ENABLE		1
+#define ADC_INTERRUPT_DISABLE		2
+
+#define CONVERSION_UPDATE			1
+
+					/*////////_ADC operates within a frequency range of 50kHz to 200kHz*/
 #define PRESCALER_DIV_FACTOR_2_		1		// for 16 MHz/2	  = 8   MHz
 #define PRESCALER_DIV_FACTOR_4_		2		// for 16 MHz/4	  = 4	MHz
 #define PRESCALER_DIV_FACTOR_8_		3		// for 16 MHz/8	  = 2	MHz
@@ -55,19 +62,13 @@
 #define  TRIGGERING_SOURCE_TIMER_1_OVERFLOW						7
 #define  TRIGGERING_SOURCE_TIMER_1_CAPTURE_EVENT				8
 
-#define	ISR_ADC_vect			_VECTOR(16)
-#define ADC_INTERRUPT_ENABLE		1
-#define ADC_INTERRUPT_DISABLE		2
-
-							//76543210		REFS1 REFS0 ADLAR  MUX4  MUX3  MUX2  MUX1  MUX0
-#define ADMUX_SAFE_RANGE	0b11100000	 //	  1	    1	  1		0	  0		0	  0		0
-#define ADMUX_WRITE_RANGE	0b00011111   //   0	    0	  0		1	  1		1     1		1
-
 /***************_MCAL_ADC.c_FUNCTION_PROTOTYPE_************/
 void MCAL_ADC_INITIATE(U8 Volt_Referencex);
 void MCAL_ADC_Disable(void);
 void MCAL_ADC_Channel_Select(U8 ADC_Channel_Name);
 void MCAL_ADC_Auto_Trigering_Mode(U8 Auto_Trigering_Conig);
+U16 MCAL_ADC_Read(void);
+F32 MCAL_ADC_MAPPED_READ(U8 loc_U8_Sensor_Resolution);
 void MCAL_ADC_Interrupt_Mode(U8 Interrupt_Config);
 void MCAL_ADC_SETCALLBACK_EXC(void(*loc_PTR_toFUNCTION)(void));
 //ISR (ISR_ADC_VECTOR);
