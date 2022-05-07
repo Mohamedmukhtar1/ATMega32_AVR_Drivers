@@ -17,6 +17,22 @@
 #define REG_ADC_VALUE (*((volatile U16*)0x24))	//	(0x5B)			0x3B	//ADCL_10-Bits_Data
 
 
+/*       _____ ______ _____ ____  _____		 _____  ______ _____ 
+ *      / ____|  ____|_   _/ __ \|  __ \	|  __ \|  ____/ ____|
+ *     | (___ | |__    | || |  | | |__) |	| |__) | |__ | |  __ 
+ *      \___ \|  __|   | || |  | |  _  /	|  _  /|  __|| | |_ |
+ *      ____) | |     _| || |__| | | \ \	| | \ \| |___| |__| |
+ *     |_____/|_|    |_____\____/|_|  \_\	|_|  \_\______\_____|
+ *     SFIOR REGISTER DEFINITION - [Special Function I/O Register]
+ *     REGISTER MISSION:	[1] Triggering source selection
+ -----------------------------------------------------------------------------
+ ||_7_||  ||_6_||  ||_5_||  ||_4_||  ||_3_||  ||_2_||  ||_1_||  ||_0_||
+   ADTS2	ADTS1	 ADTS0	   R		R		 R		  R		   R
+ -----------------------------------------------------------------------------*/
+#define SFIOR_ADTS2		7
+#define SFIOR_ADTS1		6
+#define SFIOR_ADTS0		5
+
 /*               _____  __  __ _    ___   __	 _____  ______ _____ 
  *         /\   |  __ \|  \/  | |  | \ \ / /	|  __ \|  ____/ ____|
  *        /  \  | |  | | \  / | |  | |\ V /		| |__) | |__ | |  __ 
@@ -46,7 +62,7 @@
  *       / /\ \ | |  | | |     \___ \|  _  /   / /\ \		|  _  /|  __|| | |_ |
  *      / ____ \| |__| | |____ ____) | | \ \  / ____ \		| | \ \| |___| |__| |
  *     /_/    \_\_____/ \_____|_____/|_|  \_\/_/    \_\     |_|  \_\______\_____|
- *     ADSCRA REGISTER DEFINITION - [ADC Multiplexer Selection Register]
+ *     ADSCRA REGISTER DEFINITION - [ADC Control and Status Register]
  *     REGISTER MISSION: [1] ADC Enable/Disable
  *						 [2] ADC Conversion Start
  *						 [3] Analog Channel Selection
