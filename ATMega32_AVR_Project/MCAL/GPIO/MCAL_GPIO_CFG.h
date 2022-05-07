@@ -8,7 +8,7 @@
 #ifndef MCAL_GPIO_CFG_H_
 #define MCAL_GPIO_CFG_H_
 
-/*****************_Macros_Configuration_*****************/
+/***************_Macros_Configuration_*********************/
 #define	GPIOA		(U8)1
 #define	GPIOB		(U8)2
 #define	GPIOC		(U8)3
