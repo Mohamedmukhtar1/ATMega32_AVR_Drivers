@@ -167,3 +167,31 @@ void MCAL_ADC_Auto_Trigering_Mode(U8 Auto_Trigering_Conig)
 		break;
 	}
 }
+
+
+
+
+
+
+void MCAL_ADC_Interrupt_Mode(U8 Interrupt_Config)
+{
+	switch(Interrupt_Config)
+	{
+		case ADC_INTERRUPT_ENABLE:
+			SET_BIT(REG_ADCSRA, ADCSRA_ADIE);
+		break;
+		case ADC_INTERRUPT_DISABLE:
+			CLR_BIT(REG_ADCSRA, ADCSRA_ADIE);
+		break;
+		default:
+		break;
+	}	
+}
+void MCAL_ADC_SETCALLBACK_EXC(void(*loc_PTR_toFUNCTION)(void))
+{
+	global_ptr_ADC_CallBack_Function = loc_PTR_toFUNCTION;
+}
+ISR (ISR_ADC_vect)
+{
+	global_ptr_ADC_CallBack_Function();
+}

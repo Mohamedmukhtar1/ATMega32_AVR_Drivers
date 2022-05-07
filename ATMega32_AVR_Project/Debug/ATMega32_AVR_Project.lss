@@ -3,27 +3,31 @@ ATMega32_AVR_Project.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000082  00000000  00000000  00000054  2**1
+  0 .text         000000d0  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  000000d6  2**0
+  1 .data         00000000  00800060  00800060  00000144  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  000000d6  2**0
+  2 .bss          00000002  00800060  00800060  00000144  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000144  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000108  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000174  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000020  00000000  00000000  00000144  2**0
+  5 .debug_aranges 00000070  00000000  00000000  000001b0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000586  00000000  00000000  00000164  2**0
+  6 .debug_info   00000730  00000000  00000000  00000220  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 000004ec  00000000  00000000  000006ea  2**0
+  7 .debug_abbrev 000005ae  00000000  00000000  00000950  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   0000014f  00000000  00000000  00000bd6  2**0
+  8 .debug_line   00000401  00000000  00000000  00000efe  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000024  00000000  00000000  00000d28  2**2
+  9 .debug_frame  000000f0  00000000  00000000  00001300  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000311  00000000  00000000  00000d4c  2**0
+ 10 .debug_str    00000438  00000000  00000000  000013f0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_ranges 00000010  00000000  00000000  0000105d  2**0
+ 11 .debug_loc    00000311  00000000  00000000  00001828  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000050  00000000  00000000  00001b39  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -45,7 +49,7 @@ Disassembly of section .text:
   34:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   38:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   3c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
-  40:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
+  40:	0c 94 3f 00 	jmp	0x7e	; 0x7e <__vector_16>
   44:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   48:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
   4c:	0c 94 3c 00 	jmp	0x78	; 0x78 <__bad_interrupt>
@@ -69,11 +73,11 @@ Disassembly of section .text:
   68:	1d 92       	st	X+, r1
 
 0000006a <.do_clear_bss_start>:
-  6a:	a0 36       	cpi	r26, 0x60	; 96
+  6a:	a2 36       	cpi	r26, 0x62	; 98
   6c:	b2 07       	cpc	r27, r18
   6e:	e1 f7       	brne	.-8      	; 0x68 <.do_clear_bss_loop>
   70:	0e 94 3e 00 	call	0x7c	; 0x7c <main>
-  74:	0c 94 3f 00 	jmp	0x7e	; 0x7e <_exit>
+  74:	0c 94 66 00 	jmp	0xcc	; 0xcc <_exit>
 
 00000078 <__bad_interrupt>:
   78:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -87,8 +91,54 @@ int main(void)
 {
   7c:	ff cf       	rjmp	.-2      	; 0x7c <main>
 
-0000007e <_exit>:
-  7e:	f8 94       	cli
+0000007e <__vector_16>:
+void MCAL_ADC_SETCALLBACK_EXC(void(*loc_PTR_toFUNCTION)(void))
+{
+	global_ptr_ADC_CallBack_Function = loc_PTR_toFUNCTION;
+}
+ISR (ISR_ADC_vect)
+{
+  7e:	1f 92       	push	r1
+  80:	0f 92       	push	r0
+  82:	0f b6       	in	r0, 0x3f	; 63
+  84:	0f 92       	push	r0
+  86:	11 24       	eor	r1, r1
+  88:	2f 93       	push	r18
+  8a:	3f 93       	push	r19
+  8c:	4f 93       	push	r20
+  8e:	5f 93       	push	r21
+  90:	6f 93       	push	r22
+  92:	7f 93       	push	r23
+  94:	8f 93       	push	r24
+  96:	9f 93       	push	r25
+  98:	af 93       	push	r26
+  9a:	bf 93       	push	r27
+  9c:	ef 93       	push	r30
+  9e:	ff 93       	push	r31
+	global_ptr_ADC_CallBack_Function();
+  a0:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+  a4:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+  a8:	09 95       	icall
+  aa:	ff 91       	pop	r31
+  ac:	ef 91       	pop	r30
+  ae:	bf 91       	pop	r27
+  b0:	af 91       	pop	r26
+  b2:	9f 91       	pop	r25
+  b4:	8f 91       	pop	r24
+  b6:	7f 91       	pop	r23
+  b8:	6f 91       	pop	r22
+  ba:	5f 91       	pop	r21
+  bc:	4f 91       	pop	r20
+  be:	3f 91       	pop	r19
+  c0:	2f 91       	pop	r18
+  c2:	0f 90       	pop	r0
+  c4:	0f be       	out	0x3f, r0	; 63
+  c6:	0f 90       	pop	r0
+  c8:	1f 90       	pop	r1
+  ca:	18 95       	reti
 
-00000080 <__stop_program>:
-  80:	ff cf       	rjmp	.-2      	; 0x80 <__stop_program>
+000000cc <_exit>:
+  cc:	f8 94       	cli
+
+000000ce <__stop_program>:
+  ce:	ff cf       	rjmp	.-2      	; 0xce <__stop_program>
