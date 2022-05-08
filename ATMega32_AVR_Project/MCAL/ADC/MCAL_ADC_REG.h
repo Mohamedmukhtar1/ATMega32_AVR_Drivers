@@ -44,7 +44,7 @@
  *							[3] Analog Channel Selection				
 -----------------------------------------------------------------------------
 ||_7_||  ||_6_||  ||_5_||  ||_4_||  ||_3_||  ||_2_||  ||_1_||  ||_0_||
-  REFS1	   REFS0	ADLAR	 MUX4	  MUX3	   MUX2	    MUX1	 MUX0
+  REFS1	   REFS0    ADLAR    MUX4     MUX3     MUX2     MUX1     MUX0
 -----------------------------------------------------------------------------*/
 #define ADMUX_REFS1		7			// Voltage Reference Selection1
 #define ADMUX_REFS0		6			// Voltage Reference Selection0
@@ -55,9 +55,11 @@
 #define ADMUX_MUX_1		1			// Analog Channel and Gain Selection 1
 #define ADMUX_MUX_0		0			// Analog Channel and Gain Selection 0
 
-							//76543210		REFS1 REFS0 ADLAR  MUX4  MUX3  MUX2  MUX1  MUX0
-#define ADMUX_SAFE_RANGE	0b11100000	 //	  1	    1	  1		0	  0		0	  0		0
-#define ADMUX_WRITE_RANGE	0b00011111   //   0	    0	  0		1	  1		1     1		1
+#define ADMUX_SAFE_RANGE	0b11100000   
+#define ADMUX_WRITE_RANGE	0b00011111   
+// REFS1 REFS0 ADLAR  MUX4  MUX3  MUX2  MUX1  MUX0
+//  1     1     1      0     0     0     0     0
+//  0     0     0      1     1     1     1     1
 
 /*               _____   _____  _____ _____                  _____  ______ _____ 
  *         /\   |  __ \ / ____|/ ____|  __ \     /\         |  __ \|  ____/ ____|
