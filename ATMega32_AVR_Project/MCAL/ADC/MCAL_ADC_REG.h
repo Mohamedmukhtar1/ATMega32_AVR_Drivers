@@ -76,7 +76,7 @@
  *						 [6] ADC Prescaler Select				
 -----------------------------------------------------------------------------
 ||_7_||  ||_6_||  ||_5_||  ||_4_||  ||_3_||  ||_2_||  ||_1_||  ||_0_||
-  ADEN	   ADSC	    ADATE	 ADIF	  ADIE	   ADPS2    ADPS1	 ADPS0
+  ADEN     ADSC     ADATE    ADIF     ADIE     ADPS2    ADPS1    ADPS0
 -----------------------------------------------------------------------------*/
 #define ADCSRA_ADEN		7		// ADC Enable/Disable
 #define ADCSRA_ADSC		6		// ADC Start Conversion			#complete, returns_to_zero
@@ -97,9 +97,9 @@
  *     REGISTER MISSION:  [1] ADC data register of U16 data with adjustments
 -----------------------------------------------------------------------------
 |15| |14| |13| |12| |11| |10| | 9| | 8| | 7| | 6| | 5| | 4| | 3| | 2| | 1| | 0|
- H7   H6   H5   H4	 H3   H2   H1   H0	 L7   L6   L5   L4	 L3   L2   L1   L0
- 0	  0    0    0	 0    0   ADC9 ADC8 ADC7 ADC6 ADC5 ADC4 ADC3 ADC2 ADC1 ADC0	RIGHT_ADJUSTED
-ADC9 ADC8 ADC7 ADC6 ADC5 ADC4 ADC3 ADC2 ADC1 ADC0  0	0    0    0	   0    0	LEFT_ADJUSTED
+ H7   H6   H5   H4   H3   H2   H1   H0   L7   L6   L5   L4   L3   L2   L1   L0
+ 0    0    0    0    0    0   ADC9 ADC8 ADC7 ADC6 ADC5 ADC4 ADC3 ADC2 ADC1 ADC0  RIGHT_ADJUSTED
+ADC9 ADC8 ADC7 ADC6 ADC5 ADC4 ADC3 ADC2 ADC1 ADC0  0	0    0    0    0    0    LEFT_ADJUSTED
 -----------------------------------------------------------------------------*/
 
 #endif /* MCAL_ADC_REG_H_ */
