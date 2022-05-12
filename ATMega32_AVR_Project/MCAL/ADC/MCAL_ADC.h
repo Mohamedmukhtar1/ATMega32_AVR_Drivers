@@ -28,9 +28,9 @@
 #define LEFT_RESULT_ADJUST			2	//(default) 
 #define LEFT_ADJUST_SHIFT			6
 
-#define	ISR_ADC_vect			_VECTOR(16)
 #define ADC_INTERRUPT_ENABLE		1
 #define ADC_INTERRUPT_DISABLE		2
+#define	ISR_ADC_vect			_VECTOR(16)
 
 #define CONVERSION_UPDATE			1
 
