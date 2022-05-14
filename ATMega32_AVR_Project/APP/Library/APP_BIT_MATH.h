@@ -17,7 +17,7 @@
 #define CLR_REG(REG)				(REG &= 0x00)		// Clearing a whole 1 byte register
 #define TOG_REG(REG)				(REG ^= 0xFF)		// Inverting a whole 1 byte register
 #define	GET_REG(REG)				(REG)				
-#define ASSIGN_REG(REG,VALUE)		(REG)=(VALUE)
+#define ASSIGN_REG_TO(REG,VALUE)	(REG)=(VALUE)
 /*--------------------------------------------------------------------*/
 #define SET_LNP(REG)				(REG |= 0x0F)		// Setting Low nibble of 1 byte register
 #define CLR_LNP(REG)				(REG &= 0xF0)		// Clearing Low nibble of 1 byte register
